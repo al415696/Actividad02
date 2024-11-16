@@ -1,8 +1,12 @@
 public class Empresa {
     public static void main(String[] args) {
         System.out.println("Demo Empaquetador de Té...");
-        ContenedorTe envioAsia = DecoradorCajas.generateCajaEj3();
+        ContenedorTeQueInforma envioAsia = GeneradorCajas.generateCajaEj5();
         int numFinal = envioAsia.getCount();
-        System.out.println("El envío a Asia contiene "+ numFinal +" unidades de té");
+        Informador informadorText = new InformadorTexto();
+        Informador informadorEmail = new InformadorEmail();
+        envioAsia.addInformador(informadorText);
+        envioAsia.addInformador(informadorEmail);
+        envioAsia.inform();
     }
 }
